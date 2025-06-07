@@ -1,0 +1,189 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #92fe9d, #00c9ff);
+      color: #000;
+      padding: 12px 25px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin: 10px 5px;
+      min-width: 110px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    input[type="number"] {
+      padding: 12px;
+      font-size: 1.2rem;
+      width: 100px;
+      border-radius: 10px;
+      border: none;
+      text-align: center;
+      margin-bottom: 15px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .equation {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      padding: 0 10px;
+      border-radius: 10px;
+    }
+
+    .timer {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      animation: pulseTimer 1s infinite;
+      position: relative;
+      height: 25px;
+      width: 100%;
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .timer-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #00c9ff;
+      transition: width 1s linear;
+      border-radius: 12px;
+      z-index: 1;
+    }
+
+    .timer-text {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-weight: 700;
+      line-height: 25px;
+    }
+
+    @keyframes pulseTimer {
+      0% { transform: scale(1); color: #fff; }
+      50% { transform: scale(1.2); color: #ff5252; }
+      100% { transform: scale(1); color: #fff; }
+    }
+
+    #level {
+      display: inline-block;
+      animation: popLevel 0.5s ease-in-out;
+    }
+
+    @keyframes popLevel {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .leaderboard {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .leaderboard h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .leaderboard ol {
+      padding-left: 20px;
+    }
+    .combo {
+     position: absolute;
+     top: 30%;
+     left: 50%;
+     transform: translateX(-50%);
+     font-size: 2em;
+     color: orange;
+     animation: pop 0.5s ease-out;
+    }
+    @keyframes pop {
+     0% { transform: translateX(-50%) scale(0.5); opacity: 0; }
+     100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    }
+
+
+    /* Animations for feedback */
+    .shake {
+      animation: shakeAnim 0.5s;
+    }
+
+    @keyframes shakeAnim {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-10px); }
+      40%, 80% { transform: translateX(10px); }
+    }
+
+    .glow {
+      box-shadow: 0 0 12px #92fe9d;
+    }
+
+    /* Mode Select Styling */
+    #modeSelect h2 {
+      margin-bottom: 25px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .equation { font-size: 1.5rem; }
+      input[type="number"] { width: 80px; }
+      .btn {
+        min-width: 90px;
+        padding: 10px 15px;
+        font-size: 1rem;
+        margin: 8px 3px;
+      }
+      .timer {
+        max-width: 180px;
+      }
+    }
