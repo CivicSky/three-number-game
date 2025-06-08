@@ -17,6 +17,11 @@ function startGame() {
   mode = null;
 }
 
+function goBackToStart() {
+  document.getElementById('modeSelect').style.display = 'none';
+  document.getElementById('startPage').style.display = 'block'; 
+}
+
 function selectMode(selectedMode) {
   mode = selectedMode;
   $("modeSelect").style.display = "none";
