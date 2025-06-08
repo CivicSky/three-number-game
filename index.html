@@ -6,15 +6,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Start Page -->
+
   <div class="container" id="startPage">
     <img src="https://media4.giphy.com/media/UThpUbZef3ulWxgvfn/giphy.gif" alt="Game GIF" style="width: 100%; border-radius: 15px; margin-bottom: 20px;" />
-    <h1>🧠 Guess the Missing Number</h1>
+    <h1>Guess the Missing Number</h1>
     <p>Can you solve 10 fast puzzles and beat the clock?</p>
     <button class="btn" onclick="startGame()">Start Game</button>
   </div>
 
-  <!-- Mode Select -->
+ 
   <div class="container" id="modeSelect" style="display:none;">
     <h2>Select Mode</h2>
     <button class="btn" onclick="selectMode('easy')">Easy</button>
@@ -24,7 +24,7 @@
     <button class="btn" onclick="selectMode('challenge')">Challenge</button>
   </div>
 
-  <!-- Game -->
+ 
   <div class="container" id="game" style="display:none;">
     <h2>Level <span id="level">1</span></h2>
     <div class="equation" id="equation">? + 3 = 9</div>
@@ -34,13 +34,13 @@
     <button class="btn" onclick="submitAnswer()">Submit</button>
     <div class="timer" aria-label="Timer">
       <div class="timer-bar" id="timerBar"></div>
-      <div class="timer-text">⏱️ Time left: <span id="timer">10</span> sec</div>
+      <div class="timer-text">⏱ Time left: <span id="timer">10</span> sec</div>
     </div>
   </div>
 
-  <!-- Result -->
+ 
 <div class="container" id="result" style="display:none;">
-  <h2 id="resultMessage">🎉 You Win!</h2>
+  <h2 id="resultMessage"> You Win!</h2>
   
   <!-- Name input and save button -->
   <div id="nameEntry" style="margin: 15px 0;">
@@ -53,7 +53,7 @@
   <button class="btn" onclick="goToStart()" style="margin-top:15px;">Play Again</button>
 
   <div class="leaderboard" style="margin-top: 25px;">
-    <h3>🏅 Top 3 Players</h3>
+    <h3> Top 3 Players</h3>
     <ol id="leaderboardList"></ol>
   </div>
 </div>
