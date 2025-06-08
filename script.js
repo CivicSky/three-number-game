@@ -18,8 +18,8 @@ function startGame() {
 }
 
 function goBackToStart() {
-  document.getElementById('modeSelect').style.display = 'none';
-  document.getElementById('startPage').style.display = 'block'; 
+  $('modeSelect').style.display = 'none';
+  $('startPage').style.display = 'block'; 
 }
 
 function selectMode(selectedMode) {
