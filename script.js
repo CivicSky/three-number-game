@@ -24,19 +24,10 @@ function goBackToStart() {
 
 function selectMode(selectedMode) {
   mode = selectedMode;
-  currentMode = selectedMode; // important if using per-mode leaderboard
-
+  currentMode = selectedMode; 
   $("modeSelect").style.display = "none";
   $("result").style.display = "none";
   $("game").style.display = "block";
-
- 
-  const backButton = document.querySelector("#game .btn[onclick='goBackToModeSelect()']");
-  if (selectedMode === "practice") {
-    backButton.style.display = "inline-block";
-  } else {
-    backButton.style.display = "none";
-  }
 
   switch (mode) {
     case "easy": maxTime = 15; break;
