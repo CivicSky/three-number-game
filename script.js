@@ -31,8 +31,8 @@ function selectMode(selectedMode) {
 
   switch (mode) {
     case "easy": maxTime = 15; break;
-    case "medium": maxTime = 10; break;
-    case "hard": maxTime = 7; break;
+    case "medium": maxTime = 13; break;
+    case "hard": maxTime = 10; break;
     case "practice": maxTime = 0; break;
     case "challenge": maxTime = 10; break;
     default: maxTime = 10;
@@ -78,7 +78,7 @@ function generateQuestion() {
     max = 10;
   } else if (mode === "medium") {
     operations = ["+", "-", "*"];
-    max = 30;
+    max = 20;
   } else if (mode === "hard") {
     operations = ["+", "-", "*"];
     min = 10; max = 50;
