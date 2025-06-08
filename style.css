@@ -153,7 +153,7 @@
     }
 
 
-    /* Animations for feedback */
+    
     .shake {
       animation: shakeAnim 0.5s;
     }
@@ -168,12 +168,12 @@
       box-shadow: 0 0 12px #92fe9d;
     }
 
-    /* Mode Select Styling */
+   
     #modeSelect h2 {
       margin-bottom: 25px;
     }
 
-    /* Responsive */
+
     @media (max-width: 600px) {
       .equation { font-size: 1.5rem; }
       input[type="number"] { width: 80px; }
