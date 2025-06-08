@@ -77,8 +77,8 @@ function generateQuestion() {
     operations = ["+"];
     max = 10;
   } else if (mode === "medium") {
-    operations = ["+", "-"];
-    max = 20;
+    operations = ["+", "-", "*"];
+    max = 30;
   } else if (mode === "hard") {
     operations = ["+", "-", "*"];
     min = 10; max = 50;
