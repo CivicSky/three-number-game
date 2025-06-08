@@ -8,7 +8,6 @@ let streak = 0;
 
 const $ = (id) => document.getElementById(id);
 
-// --- GAME FLOW ---
 
 function startGame() {
   $("startPage").style.display = "none";
@@ -52,7 +51,6 @@ function goToStart() {
   updateTimerBar(0);
 }
 
-// --- QUESTION GENERATION ---
 
 function generateQuestion() {
   const equationEl = $("equation");
@@ -270,7 +268,6 @@ function showExplanation() {
   $("game").appendChild(explanation);
 }
 
-// --- EVENTS ---
 
 $("answer")?.addEventListener("keydown", (e) => {
   if (e.key === "Enter") submitAnswer();
