@@ -48,16 +48,16 @@
   <h2 id="resultMessage"> You Win!</h2>
   
   <!-- Name input and save button -->
-  <div id="nameEntry" style="margin: 15px 0;">
+  <div id="nameEntry" ">
     <label for="playerName" style="font-weight: 500;">Enter your name:</label><br />
-    <input type="text" id="playerName" placeholder="Your name" maxlength="15" style="padding:8px; border-radius:8px; border:none; font-size:1rem; margin-top:5px; width: 60%;" />
+    <input type="text" id="playerName" placeholder="Your name" >
     <br />
     <button class="btn" onclick="savePlayerScore()">Save Score</button>
   </div>
 
-  <button class="btn" onclick="goToStart()" style="margin-top:15px;">Play Again</button>
+  <button class="btn" onclick="goToStart()" >Play Again</button>
 
-  <div class="leaderboard" style="margin-top: 25px;">
+  <div class="leaderboard">
     <h3> Top 3 Players</h3>
     <ol id="leaderboardList"></ol>
   </div>
