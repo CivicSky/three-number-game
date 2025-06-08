@@ -232,39 +232,43 @@ function savePlayerScore() {
     return;
   }
 
-  let scores = JSON.parse(localStorage.getItem("guessGameScores") || "[]");
+  const key = `guessGameScores_${currentMode}`;
+  let scores = JSON.parse(localStorage.getItem(key) || "[]");
+
   scores.push({
     name,
     score: level - 1,
-    date: new Date().toISOString(),
-    mode: currentMode 
+    date: new Date().toISOString()
   });
 
   scores.sort((a, b) => b.score - a.score);
   scores = scores.slice(0, 3);
-  localStorage.setItem("guessGameScores", JSON.stringify(scores));
+  localStorage.setItem(key, JSON.stringify(scores));
 
   $("nameEntry").style.display = "none";
-  showLeaderboard();
+  showLeaderboard(currentMode); 
 }
 
-function showLeaderboard() {
-  let scores = JSON.parse(localStorage.getItem("guessGameScores") || "[]");
+function showLeaderboard(mode) {
+  const key = `guessGameScores_${mode}`;
+  let scores = JSON.parse(localStorage.getItem(key) || "[]");
   let list = $("leaderboardList");
   list.innerHTML = "";
 
   if (scores.length === 0) {
-    list.innerHTML = "<li>No scores yet</li>";
+    list.innerHTML = "<li>No scores yet for this mode</li>";
     return;
   }
 
-  scores.forEach(({ name, score, date, mode }) => {
+  const capitalizedMode = mode.charAt(0).toUpperCase() + mode.slice(1);
+  const header = document.createElement("h3");
+  header.textContent = `Top 3 Players - ${capitalizedMode} Mode`;
+  const container = document.querySelector(".leaderboard");
+  container.querySelector("h3").replaceWith(header); 
+  scores.forEach(({ name, score, date }) => {
     const d = new Date(date);
     const li = document.createElement("li");
-
-    const capitalizedMode = mode ? mode.charAt(0).toUpperCase() + mode.slice(1) : "Unknown";
-
-    li.textContent = `${name} — Level ${score} — ${capitalizedMode} Mode — ${d.toLocaleDateString()}`;
+    li.textContent = `${name} — Level ${score} — ${d.toLocaleDateString()}`;
     list.appendChild(li);
   });
 }
