@@ -5,9 +5,9 @@ let correctAnswer = 0;
 let maxTime = 10;
 let mode = null;
 let streak = 0;
+let currentMode = ''; 
 
 const $ = (id) => document.getElementById(id);
-
 
 function startGame() {
   $("startPage").style.display = "none";
@@ -19,11 +19,12 @@ function startGame() {
 
 function goBackToStart() {
   $('modeSelect').style.display = 'none';
-  $('startPage').style.display = 'block'; 
+  $('startPage').style.display = 'block';
 }
 
 function selectMode(selectedMode) {
   mode = selectedMode;
+  currentMode = selectedMode; 
   $("modeSelect").style.display = "none";
   $("result").style.display = "none";
   $("game").style.display = "block";
@@ -51,11 +52,11 @@ function goToStart() {
   $("startPage").style.display = "block";
   level = 1;
   mode = null;
+  currentMode = '';
   maxTime = 10;
   $("timer").textContent = "";
   updateTimerBar(0);
 }
-
 
 function generateQuestion() {
   const equationEl = $("equation");
@@ -195,7 +196,7 @@ function startTimer() {
     updateTimerBar(timeLeft / maxTime);
     if (timeLeft <= 0) {
       clearInterval(timer);
-      failGame("⏰ Time's up!");
+      failGame(" Time's up!");
     }
   }, 1000);
 }
@@ -216,7 +217,7 @@ function failGame(message) {
 function winGame() {
   $("game").style.display = "none";
   $("result").style.display = "block";
-  $("resultMessage").textContent = "🎉 Congratulations! You finished all 10 puzzles!";
+  $("resultMessage").textContent = " Congratulations! You finished all 10 puzzles!";
   $("nameEntry").style.display = "block";
   $("playerName").value = "";
   $("playerName").focus();
@@ -232,7 +233,13 @@ function savePlayerScore() {
   }
 
   let scores = JSON.parse(localStorage.getItem("guessGameScores") || "[]");
-  scores.push({ name, score: level - 1, date: new Date().toISOString() });
+  scores.push({
+    name,
+    score: level - 1,
+    date: new Date().toISOString(),
+    mode: currentMode 
+  });
+
   scores.sort((a, b) => b.score - a.score);
   scores = scores.slice(0, 3);
   localStorage.setItem("guessGameScores", JSON.stringify(scores));
@@ -251,10 +258,13 @@ function showLeaderboard() {
     return;
   }
 
-  scores.forEach(({ name, score, date }) => {
+  scores.forEach(({ name, score, date, mode }) => {
     const d = new Date(date);
     const li = document.createElement("li");
-    li.textContent = `${name} — Level ${score} — ${d.toLocaleDateString()}`;
+
+    const capitalizedMode = mode ? mode.charAt(0).toUpperCase() + mode.slice(1) : "Unknown";
+
+    li.textContent = `${name} — Level ${score} — ${capitalizedMode} Mode — ${d.toLocaleDateString()}`;
     list.appendChild(li);
   });
 }
