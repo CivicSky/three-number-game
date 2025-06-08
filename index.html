@@ -28,7 +28,21 @@
  
 </div>
 
- <button class="btn" onclick="startGame()">⬅ Back</button>
+ <div class="container" id="practice" style="display:none;">
+    <h2>Practice Mode</h2>
+    <h2>Level <span id="level">1</span></h2>
+    <div class="equation" id="equation">? + 3 = 9</div>
+    <br />
+    <input type="number" id="answer" placeholder="?" autocomplete="off" />
+    <br />
+    <button class="btn" onclick="submitAnswer()">Submit</button>
+    <div class="timer" aria-label="Timer">
+      <div class="timer-bar" id="timerBar"></div>
+      <div class="timer-text">⏱ Time left: <span id="timer">10</span> sec</div>
+    </div>
+    <p>This is a practice area. Try equations without time pressure.</p>
+    <button class="btn" onclick="startGame()">⬅ Back to Mode Select</button>
+  </div>
  
   <div class="container" id="game" style="display:none;">
     <h2>Level <span id="level">1</span></h2>
