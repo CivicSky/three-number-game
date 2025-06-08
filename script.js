@@ -24,10 +24,19 @@ function goBackToStart() {
 
 function selectMode(selectedMode) {
   mode = selectedMode;
-  currentMode = selectedMode; 
+  currentMode = selectedMode; // important if using per-mode leaderboard
+
   $("modeSelect").style.display = "none";
   $("result").style.display = "none";
   $("game").style.display = "block";
+
+ 
+  const backButton = document.querySelector("#game .btn[onclick='goBackToModeSelect()']");
+  if (selectedMode === "practice") {
+    backButton.style.display = "inline-block";
+  } else {
+    backButton.style.display = "none";
+  }
 
   switch (mode) {
     case "easy": maxTime = 15; break;
@@ -43,6 +52,7 @@ function selectMode(selectedMode) {
   maxTime > 0 ? startTimer() : $("timer").textContent = "∞";
   updateTimerBar(1);
 }
+
 
 function goToStart() {
   clearInterval(timer);
