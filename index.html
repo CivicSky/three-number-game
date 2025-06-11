@@ -6,62 +6,47 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <div class="container" id="startPage">
-    <img src="https://media4.giphy.com/media/UThpUbZef3ulWxgvfn/giphy.gif" alt="Game GIF" style="width: 100%; border-radius: 15px; margin-bottom: 20px;" />
+    <img src="https://media4.giphy.com/media/UThpUbZef3ulWxgvfn/giphy.gif" alt="Game GIF" />
     <h1>Guess the Missing Number</h1>
-    <p>Can you solve 10 equation and beat the clock?</p>
-    <button class="btn" onclick="startGame()">Start Game</button>
+    <p>Can you solve 10 fast puzzles and beat the clock?</p>
+    <button class="btn" id="startBtn">Start Game</button>
   </div>
 
- 
   <div class="container" id="modeSelect" style="display:none;">
-    <img src="https://media4.giphy.com/media/UThpUbZef3ulWxgvfn/giphy.gif" alt="Game GIF" style="width: 100%; border-radius: 15px; margin-bottom: 20px;" />
-  <button class="btn" onclick="goBackToStart()">⬅ Back</button>
-  <h2>Select Mode</h2>
-  <button class="btn" onclick="selectMode('easy')">Easy</button>
-  <button class="btn" onclick="selectMode('medium')">Medium</button>
-  <button class="btn" onclick="selectMode('hard')">Hard</button>
-  <button class="btn" onclick="selectMode('practice')">Practice</button>
-  <button class="btn" onclick="selectMode('challenge')">Challenge</button>
-  
- 
- 
-</div>
+    <img src="https://media4.giphy.com/media/UThpUbZef3ulWxgvfn/giphy.gif" alt="Game GIF" />
+    <h2>Select Mode</h2>
+    <button class="btn mode" data-mode="easy">Easy</button>
+    <button class="btn mode" data-mode="medium">Medium</button>
+    <button class="btn mode" data-mode="hard">Hard</button>
+    <button class="btn mode" data-mode="practice">Practice</button>
+    <button class="btn mode" data-mode="challenge">Challenge</button>
+  </div>
 
- 
   <div class="container" id="game" style="display:none;">
     <h2>Level <span id="level">1</span></h2>
     <div class="equation" id="equation">? + 3 = 9</div>
-    <br />
-    <input type="number" id="answer" placeholder="?" autocomplete="off" />
-    <br />
-    <button class="btn" onclick="submitAnswer()">Submit</button>
-    <div class="timer" aria-label="Timer">
+    <input type="number" id="answer" placeholder="?" />
+    <button class="btn" id="submitBtn">Submit</button>
+    <div class="timer">
       <div class="timer-bar" id="timerBar"></div>
       <div class="timer-text">⏱ Time left: <span id="timer">10</span> sec</div>
     </div>
   </div>
 
- 
-<div class="container" id="result" style="display:none;">
-  <h2 id="resultMessage"> You Win!</h2>
-  
-  <!-- Name input and save button -->
-  <div id="nameEntry" ">
-    <label for="playerName" style="font-weight: 500;">Enter your name:</label><br />
-    <input type="text" id="playerName" placeholder="Your name" >
-    <br />
-    <button class="btn" onclick="savePlayerScore()">Save Score</button>
+  <div class="container" id="result" style="display:none;">
+    <h2 id="resultMessage">You Win!</h2>
+    <div id="nameEntry">
+      <label for="playerName">Enter your name:</label><br />
+      <input type="text" id="playerName" placeholder="Your name" maxlength="15" />
+      <button class="btn" id="saveBtn">Save Score</button>
+    </div>
+    <button class="btn" id="playAgainBtn">Play Again</button>
+    <div class="leaderboard">
+      <h3>Top 3 Players</h3>
+      <ol id="leaderboardList"></ol>
+    </div>
   </div>
-
-  <button class="btn" onclick="goToStart()" >Play Again</button>
-
- <div class="leaderboard">
-  <h3>Top 3 Players</h3> 
-  <ol id="leaderboardList"></ol>
-</div>
-</div>
 
   <script src="script.js"></script>
 </body>
